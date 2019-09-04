@@ -5,18 +5,140 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Imc Calculator</title>
+
+    <style>
+
+        .div-container{
+            width: 50vw;
+            height: 70vh;
+            background: lightgreen;
+            margin: auto;
+            padding: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .div-container h1{
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 50px;
+            text-align: center;
+            
+        }
+
+        #output{
+            width: 300px;
+            height: 40px;
+            background: white;
+            color: black;
+            margin: 15px 0 0 40px;
+            position: absolute;
+            top: 110px;
+            right: 100px;
+            border: 2px solid black;
+            text-align: center;
+            font-size: 26px;
+            font-family: Arial, Helvetica, sans-serif;
+            padding: 5px;
+        }
+
+        label{
+            padding: 10px;
+            margin: 10px 5px 0 40px;
+            display: inline-block;
+            text-transform: uppercase;
+            font-family: Arial, Helvetica, sans-serif;
+            font: bold;
+            text-align: center;
+        }
+
+        input{
+            display: block;
+        }
+
+        button{
+            margin: 15px 0 0 50px;
+            
+        }
+
+        #display{
+            width: 400px;
+            height: 300px;
+            background: rgba(0, 0, 0, 0.3);
+            position: absolute;
+            right: 40px;
+            top: 200px;
+            font-family: Arial, Helvetica, sans-serif;
+            color: black;
+            padding: 15px;
+            text-align: center;
+        }
+
+        
+    
+    
+    
+    </style>
 </head>
 <body>
 
     <div class="div-container">
 
-        <div id="output"></div>
+        <h1>Índice De Massa Corporal</h1>
 
-        <div id="display"></div>
-
-        <label for="">Altura</label>
+        <label for="ipt-altura">Altura</label>
         <input type="number" name="altura" id="ipt-altura" placeholder="Digite a sua altura: " autofocus>
+
+        <label for="ipt-peso">Peso</label>
         <input type="number" name="peso" id="ipt-peso" placeholder="Digite o seu peso: ">
+
+        <button onclick="somar()">Verificar</button>
+
+        <div id="output"> </div>
+
+        <div id="display">
+            
+            <h2>Tabela e resultados - IMC</h2>
+            <h3>O IMC pode trazer os seguintes resultados:</h3>
+            
+            <h4> IMC	Resultado  </h4>
+           <p>Menos do que 18,5 --------------------Abaixo do peso <br>
+            Entre 18,5 e 24,9 ---------------------------	    Peso normal  <br>
+            Entre 25 e 29,9	-------------------------------- Sobrepeso <br>
+            Entre 30 e 34,9	------------------------ Obesidade grau 1 <br>
+            Entre 35 e 39,9	------------------------ Obesidade grau 2 <br>
+            Mais do que 40 -------------------------Obesidade grau 3 <br>
+
+            </p>   
+           
+        </div>
+
+
+
+
+        <script>
+
+            var display = document.querySelector("#display");
+
+            var output = document.querySelector("#output");
+
+            var peso = document.querySelector("#ipt-peso");
+
+            var altura = document.querySelector("#ipt-altura");
+
+            var msg = " ";
+
+            function somar(){
+
+                var result = peso / (altura * altura);
+
+                switch
+            }
+
+
+
+        
+        
+        </script>
     </div>
     
 </body>
