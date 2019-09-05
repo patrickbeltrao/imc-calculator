@@ -61,9 +61,7 @@
         }
 
         #display{
-            width: 400px;
-            height: 300px;
-            background: rgba(0, 0, 0, 0.3);
+            
             position: absolute;
             right: 40px;
             top: 200px;
@@ -71,8 +69,36 @@
             color: black;
             padding: 15px;
             text-align: center;
-            overflow: hidden;
+            
+        
         }
+
+        #div-resul{
+            width: 410px;
+            height: 50px;
+            background: rgba(0, 0, 0, .3);
+            position: absolute;
+            bottom: 60px;
+            right: 50px;
+            color: white;
+            border: 1px solid black;
+            text-align: center;
+            font-size: 26px;
+            font-family: Arial, Helvetica, sans-serif;
+            padding: 5px;
+        }
+
+        .formulario{
+            width: 30%;
+            background: rgba(12, 92, 12, 0.705)
+           
+        }
+        .formulario legend{
+            color: white;
+        }
+            
+
+
 
         
     
@@ -86,15 +112,25 @@
 
         <h1>Índice De Massa Corporal</h1>
 
-        <label for="ipt-altura">Altura</label>
-        <input type="number" name="altura" id="ipt-altura" placeholder="Digite a sua altura: " autofocus>
+        <form action="#" class="formulario" >
 
-        <label for="ipt-peso">Peso</label>
-        <input type="number" name="peso" id="ipt-peso" placeholder="Digite o seu peso: ">
+            <fieldset >
 
-        <button onclick="calcular()">Calcular</button>
+                <legend>Formulário IMC</legend>
 
-        <input type="reset" id="btn-reset" value="reset" onclick="limpar()">
+                <label for="ipt-altura">Altura</label>
+                <input type="number" name="altura" id="ipt-altura" placeholder="Digite a sua altura: " autofocus required>
+
+                <label for="ipt-peso">Peso</label>
+                <input type="number" name="peso" id="ipt-peso" placeholder="Digite o seu peso: " required>
+
+                <button onclick="calcular()">Calcular</button>
+        
+            </fieldset>
+
+        </form>
+
+        
 
         <div id="output"> </div>
 
@@ -104,16 +140,10 @@
             <h3>O IMC pode trazer os seguintes resultados:</h3>
             
             <h4> IMC	Resultado  </h4>
-           <p>Menos do que 18,5 --------------------Abaixo do peso <br>
-            Entre 18,5 e 24,9 ---------------------------	    Peso normal  <br>
-            Entre 25 e 29,9	-------------------------------- Sobrepeso <br>
-            Entre 30 e 34,9	------------------------ Obesidade grau 1 <br>
-            Entre 35 e 39,9	------------------------ Obesidade grau 2 <br>
-            Mais do que 40 -------------------------Obesidade grau 3 <br>
-
-            </p>   
-           
+          
         </div>
+
+        <div id="div-resul"></div>
 
 
 
@@ -135,21 +165,43 @@
                 var resultado = parseFloat(peso) / parseFloat( altura ** 2);
                 resultado = parseInt(resultado);
 
+                var display2 = document.querySelector("#div-resul");
+
                 msg += "O seu IMC é de: " + resultado;
                 output.innerHTML = msg;
 
-                
+                if(resultado < 18.5){
+                    msg = "Você esta abaixo do Peso !!!"
+                    display2.innerHTML = msg;
+                }
+                else if(resultado >= 18.5 && resultado < 24.9){
+                    msg = "O seu peso esta Normal !!!";
+                    display2.innerHTML = msg;
+                }
+                else if(resultado >= 24.9 && resultado < 29.9){
+                    
+                    msg = "Você esta com Sobrepeso!!!" ;
+                    display2.innerHTML = msg;
+                }
+                else if(resultado >= 29.9 && resultado < 34.9){
+                    msg = "Você esta com Obesidade Grua 1 !!!";
+                    display2.innerHTML = msg;
+                }
+                else if(resultado >= 34.9 && resultado < 39.9){
+                    msg = "Você esta com Obesidade Grua 2 !!!";
+                    display2.innerHTML = msg;
+                }
+                else if(resultado > 39.9){
+                    msg = "Você esta com Obesidade Grua 3 !!!";
+                    display2.innerHTML = msg;
+                    
+                }
 
                 
             }
 
-            function limpar(){
-                msg += "Insira os dados novamente";
-                output.innerHTML = msg;
 
-                msg += "";
-                output.innerHTML = msg;
-            }
+
 
 
 
