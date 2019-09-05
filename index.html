@@ -92,7 +92,9 @@
         <label for="ipt-peso">Peso</label>
         <input type="number" name="peso" id="ipt-peso" placeholder="Digite o seu peso: ">
 
-        <button onclick="somar()">Verificar</button>
+        <button onclick="calcular()">Calcular</button>
+
+        <input type="reset" id="btn-reset" value="reset" onclick="limpar()">
 
         <div id="output"> </div>
 
@@ -118,29 +120,35 @@
 
         <script>
 
-            var display = document.querySelector("#display");
-
             var output = document.querySelector("#output");
 
-            var peso = parseFloat(document.querySelector("#ipt-peso"));
-           
-            var altura = parseFloat(document.querySelector("#ipt-altura"));
-
-            var msg = result;
+            var msg = "";
+            
             
 
-            
-        
-            
+            function calcular(){
 
-            function somar(altura, peso){
 
-                var result = peso / (altura * altura);
-                alert(result);
+                var altura = document.querySelector("#ipt-altura").value;
+                var peso = document.querySelector("#ipt-peso").value;
 
-               /* msg += "O seu IMC é de: " + (result);
-                output.innerHTML = msg;*/
+                var resultado = parseFloat(peso) / parseFloat( altura ** 2);
+                resultado = parseInt(resultado);
+
+                msg += "O seu IMC é de: " + resultado;
+                output.innerHTML = msg;
+
                 
+
+                
+            }
+
+            function limpar(){
+                msg += "Insira os dados novamente";
+                output.innerHTML = msg;
+
+                msg += "";
+                output.innerHTML = msg;
             }
 
 
